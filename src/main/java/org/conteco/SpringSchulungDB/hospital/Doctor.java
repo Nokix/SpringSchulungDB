@@ -1,21 +1,26 @@
 package org.conteco.SpringSchulungDB.hospital;
 
+import lombok.AllArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Setter
 @Component
 public class Doctor {
-    @Autowired
-    @Qualifier("abc")
+    @Value("${name:Hallo}")
     private String qualification;
-
     @Autowired
     private Nurse nurse;
 
-    //    public Doctor(String qualification, Nurse nurse) {
+//    public Doctor(
+//            @Value("${name}") String qualification,
+//            Nurse nurse
+//    ) {
 //        this.qualification = qualification;
 //        this.nurse = nurse;
 //    }

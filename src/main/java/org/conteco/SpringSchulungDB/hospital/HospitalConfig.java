@@ -13,7 +13,7 @@ public class HospitalConfig {
     }
 
     @Bean
-    public String lastName() {
+    public String qualification() {
         return "Robin";
     }
 }

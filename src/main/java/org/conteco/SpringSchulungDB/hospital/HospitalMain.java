@@ -1,11 +1,9 @@
 package org.conteco.SpringSchulungDB.hospital;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @ComponentScan
+@PropertySource("classpath:application.properties")
 public class HospitalMain {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
@@ -13,6 +11,5 @@ public class HospitalMain {
 
         Doctor doctor = context.getBean(Doctor.class);
         System.out.println(doctor.assist());
-
     }
 }
