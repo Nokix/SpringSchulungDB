@@ -16,8 +16,6 @@ public class ShoppingCart {
     public Item addItem(Item item) {
         Long itemCount = cart.getOrDefault(item, 0L);
         cart.put(item, itemCount + 1);
-        updatePrice();
-        updateCount();
         return item;
     }
 
@@ -30,8 +28,6 @@ public class ShoppingCart {
                 cart.remove(item);
             }
         }
-        updateCount();
-        updatePrice();
         return item;
     }
 
