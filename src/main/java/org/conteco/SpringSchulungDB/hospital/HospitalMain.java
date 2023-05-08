@@ -1,9 +1,15 @@
 package org.conteco.SpringSchulungDB.hospital;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class HospitalMain {
     public static void main(String[] args) {
-        String qualification = "Prof.";
-        Doctor doctor = new Doctor(qualification);
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("spring.xml");
+
+        Doctor doctor = context.getBean(Doctor.class);
         System.out.println(doctor.assist());
+//        String qualification = "Prof.";
+//        Doctor doctor = new Doctor(qualification);
     }
 }
