@@ -9,6 +9,10 @@ public class HospitalMain {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(HospitalMain.class);
 
+        for (String beanDefinitionName : context.getBeanDefinitionNames()) {
+            System.out.println(beanDefinitionName);
+        }
+
         Doctor doctor = context.getBean(Doctor.class);
         System.out.println(doctor.assist());
     }

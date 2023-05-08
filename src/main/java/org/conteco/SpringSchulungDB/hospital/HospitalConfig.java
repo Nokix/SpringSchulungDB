@@ -1,19 +1,20 @@
 package org.conteco.SpringSchulungDB.hospital;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class HospitalConfig {
-    @Bean("abc")
+    @Bean
+    @Profile("dev")
     public String getQ() {
         return "Joachim";
     }
 
     @Bean
-    public String qualification() {
+    @Profile("!dev")
+    public String getQ2() {
         return "Robin";
     }
 }
