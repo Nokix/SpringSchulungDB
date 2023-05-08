@@ -2,13 +2,14 @@ package org.conteco.SpringSchulungDB.hospital;
 
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Setter
 @Component
 public class Doctor {
-    @Value("Marcel")
+    @Autowired
+    @Qualifier("abc")
     private String qualification;
 
     @Autowired
