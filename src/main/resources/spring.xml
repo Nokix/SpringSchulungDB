@@ -5,4 +5,5 @@
     <bean class="org.conteco.SpringSchulungDB.hospital.Doctor">
         <constructor-arg value="Karl"/>
     </bean>
+    <bean class="org.conteco.SpringSchulungDB.hospital.Nurse"/>
 </beans>
