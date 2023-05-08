@@ -7,10 +7,7 @@ public class HospitalMain {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("spring.xml");
 
-        Nurse nurse = context.getBean(Nurse.class);
-        System.out.println(nurse.assist());
-//        System.out.println(doctor.assist());
-//        String qualification = "Prof.";
-//        Doctor doctor = new Doctor(qualification);
+        Doctor doctor = context.getBean(Doctor.class);
+        System.out.println(doctor.assist());
     }
 }
