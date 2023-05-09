@@ -11,4 +11,6 @@ public interface UserService {
     Optional<User> getById(Long id);
 
     List<User> createNewUsers(Long amount);
+
+    User saveUser(User user);
 }

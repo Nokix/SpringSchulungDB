@@ -30,12 +30,16 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> createNewUsers(Long amount) {
-        return Stream.generate(() -> faker.funnyName().name())
+        return Stream
+                .generate(faker.funnyName()::name)
                 .limit(amount)
                 .map(User::new)
-                .map(user -> userRepository.save(user))
+                .map(userRepository::save)
                 .collect(Collectors.toList());
     }
 
-
+    @Override
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
 }
