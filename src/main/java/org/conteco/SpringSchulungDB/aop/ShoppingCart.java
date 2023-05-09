@@ -13,6 +13,7 @@ public class ShoppingCart {
     Long price = 0L;
     Long count = 0L;
 
+    @TimeMe
     public Item addItem(Item item) {
         Long itemCount = cart.getOrDefault(item, 0L);
         cart.put(item, itemCount + 1);
