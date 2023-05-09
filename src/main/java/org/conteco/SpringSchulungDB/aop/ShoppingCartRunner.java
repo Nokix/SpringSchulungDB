@@ -14,7 +14,7 @@ public class ShoppingCartRunner implements CommandLineRunner {
         Item cola = new Item("Cola", 100L);
         Item banane = new Item("Banane", 50L);
         shoppingCart.addItem(banane);
-        shoppingCart.addItem(null);
+//        shoppingCart.addItem(null);
 //        shoppingCart.addItem(banane);
 //        shoppingCart.addItem(cola);
 //        shoppingCart.removeItem(banane);
