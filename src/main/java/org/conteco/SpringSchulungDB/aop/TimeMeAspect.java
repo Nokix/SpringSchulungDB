@@ -4,34 +4,23 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+
+import java.time.ZonedDateTime;
 
 @Aspect
 @Component
 public class TimeMeAspect {
+    @Around("@annotation(TimeMe)")
+    public Object update(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        int nano = ZonedDateTime.now().getNano();
 
-    @Pointcut("@annotation(TimeMe)")
-    public void timeMeAnnotated() {
-    }
+        Object obj = proceedingJoinPoint.proceed();
 
-    @Pointcut("within(ShoppingCart)")
-    public void shoppingCartMethod() {
-    }
+        int nano2 = ZonedDateTime.now().getNano();
+        System.out.println("es dauerte: " + (float) (nano2 - nano) / 1000000000 + "sekunden");
 
-    @Around("timeMeAnnotated()")
-    public Object timer(ProceedingJoinPoint joinPoint) throws Throwable {
-        long start = System.nanoTime();
-        Object result = joinPoint.proceed();
-        System.out.println("Method invocation: " + joinPoint.getSignature());
-        System.out.println(System.nanoTime() - start);
-        System.out.println();
-        return result;
-    }
-
-    @Before("timeMeAnnotated()")
-    public void someMessage(JoinPoint joinPoint) {
-        System.out.println("Let's time some stuff!");
+        return obj;
     }
 }
