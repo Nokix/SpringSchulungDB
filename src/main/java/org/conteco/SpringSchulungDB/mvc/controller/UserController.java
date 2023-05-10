@@ -43,4 +43,11 @@ public class UserController {
     public User saveUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
+
+    @GetMapping("/users/name/{name}")
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<User> findUserByName(@PathVariable String name) {
+        return userService.findByName(name);
+    }
+
 }

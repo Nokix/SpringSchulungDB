@@ -13,4 +13,6 @@ public interface UserService {
     List<User> createNewUsers(Long amount);
 
     User saveUser(User user);
+
+    Optional<User> findByName(String name);
 }
