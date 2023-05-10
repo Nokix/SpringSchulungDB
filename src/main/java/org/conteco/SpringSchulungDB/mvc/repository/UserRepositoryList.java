@@ -12,8 +12,8 @@ public class UserRepositoryList {
     private List<User> users = new ArrayList<>();
 
     public UserRepositoryList() {
-        this.users.add(new User(1L, "Christian"));
-        this.users.add(new User(2L, "Elisa"));
+        this.users.add(new User(1L, "Christian", null));
+        this.users.add(new User(2L, "Elisa", null));
     }
 
     public List<User> findAll() {

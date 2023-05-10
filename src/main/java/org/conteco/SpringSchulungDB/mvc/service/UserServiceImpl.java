@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService{
         return Stream
                 .generate(faker.funnyName()::name)
                 .limit(amount)
-                .map(name -> new User(null, name))
+                .map(name -> new User(null, name, null))
                 .map(userRepository::save)
                 .collect(Collectors.toList());
     }
