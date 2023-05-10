@@ -3,6 +3,7 @@ package org.conteco.SpringSchulungDB.mvc.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,4 +23,7 @@ public class User {
     public User(String name) {
         this.name = name;
     }
+
+    @OneToOne(mappedBy = "user")
+    private Address address;
 }
