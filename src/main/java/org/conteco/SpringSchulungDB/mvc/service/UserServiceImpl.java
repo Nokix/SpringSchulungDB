@@ -2,6 +2,7 @@ package org.conteco.SpringSchulungDB.mvc.service;
 
 import com.github.javafaker.Faker;
 import org.conteco.SpringSchulungDB.mvc.entity.User;
+import org.conteco.SpringSchulungDB.mvc.repository.UserRepository;
 import org.conteco.SpringSchulungDB.mvc.repository.UserRepositoryList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import java.util.stream.Stream;
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
-    UserRepositoryList userRepository;
+    UserRepository userRepository;
     @Autowired
     Faker faker;
 

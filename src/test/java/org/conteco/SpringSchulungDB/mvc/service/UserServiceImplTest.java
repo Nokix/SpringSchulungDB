@@ -1,9 +1,7 @@
 package org.conteco.SpringSchulungDB.mvc.service;
 
 import org.conteco.SpringSchulungDB.mvc.entity.User;
-import org.conteco.SpringSchulungDB.mvc.repository.UserRepositoryList;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.conteco.SpringSchulungDB.mvc.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +19,12 @@ class UserServiceImplTest {
     UserService userService;
 
     @MockBean
-    UserRepositoryList userRepositoryList;
+    UserRepository userRepository;
 
 
     @Test
     public void getByIdTest() {
-        Mockito.when(userRepositoryList.findById(2L))
+        Mockito.when(userRepository.findById(2L))
                 .thenReturn(Optional.of(new User(2L, "Gustav")));
 
         Optional<User> userOptional = userService.getById(2L);
