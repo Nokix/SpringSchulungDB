@@ -23,15 +23,6 @@ class UserServiceImplTest {
     @MockBean
     UserRepositoryList userRepositoryList;
 
-    @BeforeEach
-    public void doStuff() {
-        System.out.println("The test did not start yet");
-    }
-
-    @AfterEach
-    public void inTheEnd() {
-        System.out.println("The test is now finished");
-    }
 
     @Test
     public void getByIdTest() {
@@ -42,16 +33,4 @@ class UserServiceImplTest {
         assertEquals("Gustav", userOptional.get().getName());
     }
 
-    @Test
-    public void test0() {
-        System.out.println("ich bin test 0");
-    }
-    @Test
-    public void test1() {
-        System.out.println("ich bin test 1");
-    }
-    @Test
-    public void test2() {
-        System.out.println("ich bin test 2");
-    }
 }
