@@ -2,9 +2,7 @@ package org.conteco.SpringSchulungDB.mvc.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -16,12 +14,12 @@ import javax.persistence.Table;
 @Table(name = "Benutzer")
 public class User {
     @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
 
     public User(String name) {
-        this.id = null;
         this.name = name;
     }
 }
