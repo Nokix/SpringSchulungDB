@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -18,12 +19,14 @@ public class NameController {
     @Autowired
     Faker faker;
 
-    // GET localhost:8080/names?n=100
     @GetMapping("/names")
     public Flux<String> getRandomNames(
             @RequestParam int n
     ) {
-        Stream<String> nameStream = Stream.generate(faker.funnyName()::name).limit(n);
-        return Flux.fromStream(nameStream).delayElements(Duration.ofSeconds(1));
+        ArrayList<String> names = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            names.add(faker.funnyName().name());
+        }
+        return Flux.fromIterable(names).delayElements(Duration.ofSeconds(1));
     }
 }
